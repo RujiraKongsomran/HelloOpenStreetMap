@@ -6,8 +6,10 @@ import android.preference.PreferenceManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
         // Add default zoom buttons, and ability to zoom with 2 fingers (multi-touch)
         map.setBuiltInZoomControls(true);
         map.setMultiTouchControls(true);
+
+        // Move the map on a default view point
+        IMapController mapController = map.getController();
+        mapController.setZoom(9.5);
+        GeoPoint startPoint = new GeoPoint(13.736717, 100.523186);
+        mapController.setCenter(startPoint);
 
     }
 
