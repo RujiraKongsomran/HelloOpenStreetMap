@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         map = (MapView) findViewById(R.id.map);
         map.setTileSource(TileSourceFactory.MAPNIK);
 
+        // Add default zoom buttons, and ability to zoom with 2 fingers (multi-touch)
+        map.setBuiltInZoomControls(true);
+        map.setMultiTouchControls(true);
+
     }
 
     @Override
